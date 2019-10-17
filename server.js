@@ -18,6 +18,30 @@ const path = require('path');
 app.listen(port, () => {
     log(`JoeyServer is now the talkative fly on the localhost wall at port ${port}. Cogito ergo sum.`);
 });
-app.use("/", express.static(path.join(__dirname, "errors")));
+// app.use("/", express.static(path.join(__dirname, "errors")));
 
 
+const zooRoster = {
+  zebra: 12,
+  lion: 4,
+  panda: 1,
+  elephant: 0,
+  horse: 9,
+  pig: 5,
+  wolve: 6,
+  penguin: 1873 
+};
+const isAnimal = (req, res, next) => {
+  res.json({
+    status: "success",
+    message: !!zooRoster[req.params.query]
+  });
+};
+app.get("/animal/:query", isAnimal);
+
+
+app.use("*", (req, res) => {
+    res.status(200).json({
+        status: "failure"
+    });
+});
