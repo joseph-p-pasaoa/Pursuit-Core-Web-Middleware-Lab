@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+   <meta name="author" contant="Joseph P. Pasaoa" />
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+   <title>Middleware Lab | Joseph P. Pasaoa</title>
+   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+   <script src="./index.js" type="text/javascript"></script>
+   <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+   <div id='basegrid'>
+
+      <h1>Middleware Demo</h1>
+
+      <form id="allForm">
+         <div id="formPart1" class="form__part">
+            <h2>Animal Check</h2>
+            <input type="text" id="textAnimal" placeholder="Enter an animal" />
+            <button type="button" id="btnAnimal" for="textAnimal">Check</button>
+         </div>
+
+         <div id="formPart2" class="form__part">
+            <h2>Random Array Num</h2>
+            <input type="text" id="textFloorNum" placeholder="Enter a min (exclusive)" />
+            <input type="text" id="textCeilNum" placeholder="Enter a max (exclusive)" />
+            <button type="button" id="btnRandom">Get</button>
+         </div>
+
+         <div id="formPart3" class="form__part">
+            <h2>Volunteer Queue</h2>
+            <input type="text" id="textName" placeholder="Enter a name" />
+            <button type="button" id="btnPeek" value="peek">Peek</button>
+            <button type="button" id="btnAdd" value="enqueue">Enqueue</button>
+            <button type="button" id="btnDel" value="dequeue">Dequeue</button>
+         </div>
+      </form>
+
+      <div id="userConsole">
+         <div class="console__part" id="consolePart1"></div>
+         <div class="console__part" id="consolePart2"></div>
+         <div class="console__part" id="consolePart3"></div>
+      </div>
+
+      <p>Copyright © 2019 Joseph P. Pasaoa. All rights reserved.</p>
+
+   </div>
+</body>
+</html>

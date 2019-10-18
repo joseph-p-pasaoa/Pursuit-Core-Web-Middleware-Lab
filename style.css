@@ -1,0 +1,149 @@
+/*
+Joseph P. Pasaoa
+Imagery Retriever Lab
+*/
+
+
+/* CSS RESET -- begins
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/* FONT INITS */
+@font-face {
+  font-family: 'Open Sans';
+  src: url('./fonts/Open_Sans/OpenSans-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Share Tech Mono';
+  src: url('./fonts/Share_Tech_Mono/ShareTechMono-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/* MAIN STYLE */
+html, body, div#basegrid {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+div#basegrid {
+
+}
+
+h1 {
+  margin-bottom: 41px;
+  padding: 12px;
+
+  font-size: 2.5em;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+h2 {
+  padding: 12px;
+
+  font-size: 1.3em;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+form, div#userConsole {
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+input[type="text"] {
+  margin-left: 12px; 
+}
+
+div#userConsole {
+  margin-top: 10px;
+  padding: 14px 0;
+  height: 350px;
+  background-color: #222;
+  border-top: solid 1px #444;
+  border-bottom: solid 1px #111;
+
+  color: limegreen;
+  font-size: 0.8em;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+div.console__part {
+  padding: 0 12px;
+  line-height: 1.3em;
+
+  white-space: pre-wrap;
+}
+
+div.show-input {
+  color: darkorange;
+}
+
+div.show-input--fail {
+  color: red;
+}
+
+p {
+  padding: 12px;
+
+  color: #111;
+  text-shadow: -6px 4px 0px cyan;
+  font-size: 0.8em;
+  font-family: 'Share Tech Mono', monospace;
+}
