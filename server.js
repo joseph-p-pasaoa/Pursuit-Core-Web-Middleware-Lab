@@ -29,7 +29,7 @@ const zooRoster = {
   elephant: 0,
   horse: 9,
   pig: 5,
-  wolve: 6,
+  wolf: 6,
   penguin: 1873 
 };
 const isAnimal = (req, res, next) => {
@@ -48,9 +48,9 @@ const generateSpread = (req, res, next) => {
     range: [parseInt(req.query.floor), parseInt(req.query.ceil)],
   }
   if (res.locals.output.range[0] >= res.locals.output.range[1]) {
-    res.status(400).json({
+    res.json({
       status: "failure",
-      message: "error: your must be at least 2 larger than your floor. please check your inputs and try again"
+      message: "error: your ceiling must be at least 2 larger than your floor. please check your inputs and try again"
     })
   } else {
     res.locals.array = [];
@@ -79,18 +79,32 @@ const handleQueue = (req, res, next) => {
       });
       break;
     case 'dequeue':
-      const dequeued = volunteers[volunteers.length - 1];
-      volunteers.pop();
-      res.json({
-          status: "success",
-          dequeued: dequeued
-      });
+      if (!volunteers[0]) {
+        res.json({
+            status: "failure",
+            message: "error: queue is empty"
+        });
+      } else {
+        const dequeued = volunteers[volunteers.length - 1];
+        volunteers.pop();
+        res.json({
+            status: "success",
+            dequeued: dequeued
+        });
+      }
       break;
     case 'peek':
-      res.json({
-          status: "success",
-          data: volunteers[volunteers.length - 1]
-      });
+      if (!volunteers[0]) {
+        res.json({
+            status: "failure",
+            message: "error: queue is empty"
+        });
+      } else {
+        res.json({
+            status: "success",
+            data: volunteers[volunteers.length - 1]
+        });
+      }
       break;
     default:
       res.status(404).json({
@@ -104,7 +118,7 @@ app.get("/queue/:op", handleQueue);
 
 /* NO ROUTE CATCH */
 app.use("*", (req, res) => {
-    res.status(404).json({
+    res.status(204).json({
         status: "failure",
         message: "error: path not found"
     });
